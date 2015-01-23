@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+.metadata
+*.mode1v3
+*.pbxuser
+*.xcuserdatad
+*.xcworkspace
+build
+Pods/
+Podfile.lock
+!.gitignore

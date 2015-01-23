@@ -12,6 +12,9 @@
 		95D1C6FD1A70BD9400F9A7D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D1C6FC1A70BD9400F9A7D0 /* Images.xcassets */; };
 		95D1C7001A70BD9400F9A7D0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D1C6FE1A70BD9400F9A7D0 /* MainMenu.xib */; };
 		95D1C70C1A70BD9500F9A7D0 /* neural_networkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C70B1A70BD9500F9A7D0 /* neural_networkTests.m */; };
+		95D1C7191A70BE5000F9A7D0 /* neuron_float.c in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C7171A70BE5000F9A7D0 /* neuron_float.c */; };
+		95D1C71E1A70DC2400F9A7D0 /* neuron_float_network.c in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C71C1A70DC2400F9A7D0 /* neuron_float_network.c */; };
+		95D1C7241A71E43000F9A7D0 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C7231A71E43000F9A7D0 /* NeuralNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,13 @@
 		95D1C7051A70BD9400F9A7D0 /* neural-networkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "neural-networkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D1C70A1A70BD9400F9A7D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95D1C70B1A70BD9500F9A7D0 /* neural_networkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = neural_networkTests.m; sourceTree = "<group>"; };
+		95D1C7171A70BE5000F9A7D0 /* neuron_float.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = neuron_float.c; sourceTree = "<group>"; };
+		95D1C7181A70BE5000F9A7D0 /* neuron_float.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neuron_float.h; sourceTree = "<group>"; };
+		95D1C71A1A70C11100F9A7D0 /* neuron_global_definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = neuron_global_definition.h; sourceTree = "<group>"; };
+		95D1C71C1A70DC2400F9A7D0 /* neuron_float_network.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = neuron_float_network.c; sourceTree = "<group>"; };
+		95D1C71D1A70DC2400F9A7D0 /* neuron_float_network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neuron_float_network.h; sourceTree = "<group>"; };
+		95D1C7221A71E43000F9A7D0 /* NeuralNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralNetwork.h; sourceTree = "<group>"; };
+		95D1C7231A71E43000F9A7D0 /* NeuralNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		95D1C6F41A70BD9400F9A7D0 /* neural-network */ = {
 			isa = PBXGroup;
 			children = (
+				95D1C7151A70BDD700F9A7D0 /* neural */,
 				95D1C6F71A70BD9400F9A7D0 /* AppDelegate.h */,
 				95D1C6F81A70BD9400F9A7D0 /* AppDelegate.m */,
 				95D1C6FC1A70BD9400F9A7D0 /* Images.xcassets */,
@@ -109,6 +120,36 @@
 				95D1C70A1A70BD9400F9A7D0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95D1C7151A70BDD700F9A7D0 /* neural */ = {
+			isa = PBXGroup;
+			children = (
+				95D1C7161A70BDF000F9A7D0 /* neuron */,
+			);
+			path = neural;
+			sourceTree = "<group>";
+		};
+		95D1C7161A70BDF000F9A7D0 /* neuron */ = {
+			isa = PBXGroup;
+			children = (
+				95D1C7211A71E42400F9A7D0 /* Objective-C */,
+				95D1C71A1A70C11100F9A7D0 /* neuron_global_definition.h */,
+				95D1C7181A70BE5000F9A7D0 /* neuron_float.h */,
+				95D1C7171A70BE5000F9A7D0 /* neuron_float.c */,
+				95D1C71D1A70DC2400F9A7D0 /* neuron_float_network.h */,
+				95D1C71C1A70DC2400F9A7D0 /* neuron_float_network.c */,
+			);
+			path = neuron;
+			sourceTree = "<group>";
+		};
+		95D1C7211A71E42400F9A7D0 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				95D1C7221A71E43000F9A7D0 /* NeuralNetwork.h */,
+				95D1C7231A71E43000F9A7D0 /* NeuralNetwork.m */,
+			);
+			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D1C7241A71E43000F9A7D0 /* NeuralNetwork.m in Sources */,
+				95D1C71E1A70DC2400F9A7D0 /* neuron_float_network.c in Sources */,
 				95D1C6FB1A70BD9400F9A7D0 /* main.m in Sources */,
 				95D1C6F91A70BD9400F9A7D0 /* AppDelegate.m in Sources */,
+				95D1C7191A70BE5000F9A7D0 /* neuron_float.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
