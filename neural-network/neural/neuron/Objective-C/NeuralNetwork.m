@@ -90,17 +90,13 @@
     }
 }
 
-- (void)processBackPropagation:(float *)inputs results:(float *)results desiredResults:(float *)desiredResults count:(unsigned int)count traningCount:(unsigned int)trainingCount
+- (void)processBackPropagation:(float *)inputs results:(float *)results desiredResults:(float *)desiredResults count:(unsigned int)count
 {
     unsigned int index;
-    printf("\nStartBackPropagation--------------");
-    while (trainingCount--) {
-        printf("\n------------");
-        for (index=0; index < count; index++) {
-            neuron_float_network_process(&inputs[index], &results[index]);
-            printf("\nCalced: %f %f(%f)", inputs[index], results[index], desiredResults[index]);
-            
-        }
+    for (index=0; index < count; index++) {
+        neuron_float_network_process(&inputs[index], &results[index]);
+        printf("\nCalced: %f %f(%f)", inputs[index], results[index], desiredResults[index]);
+        neuron_float_network_backpropagation(&results[index], &desiredResults[index]);
     }
 }
 
@@ -134,7 +130,7 @@
             float *weights = neuron_float_network_proble_weight(index, layerIndex, &length);
             printf("\t[");
             for (unsigned int weightIndex=0; weightIndex < length; weightIndex++) {
-                printf(" %.1f", weights[weightIndex]);
+                printf(" %.3f", weights[weightIndex]);
             }
             printf("]");
         }

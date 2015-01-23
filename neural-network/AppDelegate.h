@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class FloatDisplay;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet FloatDisplay *floatDisplayView;
 
 @end
 

@@ -7,12 +7,17 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FloatDisplay.h"
 #import "NeuralNetwork.h"
+
+#define TryNum 100
 
 @interface AppDelegate ()
 {
     NeuralNetwork *_network;
+    
+    float _xx[TryNum];
+    float _yy[TryNum];
 }
 @property (weak) IBOutlet NSTextField *nodeInLayerTextField;
 @property (weak) IBOutlet NSTextField *layersTextField;
@@ -60,11 +65,27 @@
     float y;
     float result;
     
-    x = 1;
+    x = 3;
     y = [self function:x];
     [_network printWeights];
-    [_network processBackPropagation:&x results:&result desiredResults:&y count:1 traningCount:10];
+    printf("\nBackPropagation------------");
+    for (NSUInteger i=0; i<TryNum; i++) {
+        [_network processBackPropagation:&x results:&result desiredResults:&y count:1];
+        _yy[i] = result - y;
+        if (_yy[i] < 0) _yy[i] *= -1;
+    }
     [_network printOutpus];
+    [_network printWeights];
+    
+    for (NSUInteger i=0; i<TryNum; i++) {
+        _xx[i] = (float)i;
+    }
+    
+    self.floatDisplayView.drawLine = YES;
+    [self.floatDisplayView setMaxY:10];
+    [self.floatDisplayView setMaxX:TryNum];
+    [self.floatDisplayView setX:_xx Y:_yy length:TryNum];
+    [self.floatDisplayView setNeedsDisplay:YES];
 }
 
 //=======================================================//

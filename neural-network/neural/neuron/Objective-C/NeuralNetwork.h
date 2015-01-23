@@ -21,7 +21,7 @@
 
 // process
 - (void)processNetwork:(float *)inputs results:(float *)results count:(unsigned int)count;
-- (void)processBackPropagation:(float *)inputs results:(float *)results desiredResults:(float *)desiredResults count:(unsigned int)count traningCount:(unsigned int)trainingCount;
+- (void)processBackPropagation:(float *)inputs results:(float *)results desiredResults:(float *)desiredResults count:(unsigned int)count;
 
 // prints
 - (void)printOutpus;

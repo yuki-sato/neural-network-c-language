@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="alphaField" destination="kzo-bw-7VN" id="hBf-x5-KfO"/>
                 <outlet property="epsilonField" destination="UCq-MF-GgB" id="iM2-yU-3zm"/>
+                <outlet property="floatDisplayView" destination="QvV-yt-ceX" id="ULB-aD-USI"/>
                 <outlet property="layersTextField" destination="TEl-Ce-nSW" id="zPt-ll-gIR"/>
                 <outlet property="nodeInLayerTextField" destination="ekj-Z6-PMT" id="hvT-1u-sKd"/>
                 <outlet property="weightRangeField" destination="OEv-hX-1lr" id="FKW-VA-ddw"/>
@@ -758,7 +759,7 @@
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCq-MF-GgB">
                         <rect key="frame" x="224" y="519" width="96" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0.01" placeholderString="0.01" drawsBackground="YES" id="kaU-c0-yw1">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0.1" placeholderString="0.01" drawsBackground="YES" id="kaU-c0-yw1">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -778,6 +779,17 @@
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvV-yt-ceX" customClass="FloatDisplay">
+                        <rect key="frame" x="388" y="0.0" width="367" height="325"/>
+                    </customView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUc-rc-5Eh">
+                        <rect key="frame" x="388" y="333" width="119" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error Improvement" id="XUm-Du-rmU">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>

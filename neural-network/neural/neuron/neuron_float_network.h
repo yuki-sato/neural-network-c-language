@@ -20,7 +20,7 @@ void neuron_float_network_config(float alpha, float epsilon);
 
 // 2. process
 void neuron_float_network_process(float *input, float *output);
-
+void neuron_float_network_backpropagation(float *lastOutput, float *desiredOutput);
 
 // Probe Methods
 float * neuron_float_network_proble_weight(unsigned int indexInlayer, unsigned int layerIndex, unsigned int *length);

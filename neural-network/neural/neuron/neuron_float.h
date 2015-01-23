@@ -9,13 +9,12 @@
 #ifndef __neural_network__neuron_float__
 #define __neural_network__neuron_float__
 
-#include "neuron_global_definition.h"
-
 // call onece
 void neuron_set_params(float newAlpha, float newEpsilon);
 
 // calc output
 void neuron_float_process(float *output, const float input[], const float weight[], unsigned int inputCount);
+void neuron_float_sum(float *output, const float input[], const float weight[], unsigned int inputCount);
 
 // for backpropagation
 void neuron_float_fill_influence_level(
