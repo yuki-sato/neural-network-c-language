@@ -32,7 +32,7 @@
 {
     [super drawRect:dirtyRect];
     
-    [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1] set];
+    [[NSColor colorWithDeviceRed:1 green:1 blue:1 alpha:1] set];
     NSRectFill(NSMakeRect(0, 0, self.bounds.size.width, self.bounds.size.height));
     
     if (!_x || !_y || !_maxX || !_maxY)
@@ -41,7 +41,7 @@
     CGFloat width = self.bounds.size.width / _maxX;
     CGFloat height = self.bounds.size.height / _maxY;
     
-    [[NSColor colorWithDeviceRed:1 green:1 blue:1 alpha:1] set];
+    [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1] set];
     NSBezierPath *path = nil;
     if (self.drawLine) {
         path = [NSBezierPath bezierPath];

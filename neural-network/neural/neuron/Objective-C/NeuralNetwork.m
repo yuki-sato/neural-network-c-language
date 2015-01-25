@@ -79,24 +79,18 @@
     neuron_float_network_set_random_weight(range);
 }
 
-
 - (void)processNetwork:(float *)inputs results:(float *)results count:(unsigned int)count
 {
     while (count--) {
         neuron_float_network_process(&inputs[count], &results[count]);
-#ifdef DEBUG
-        printf("\ninput\t= %f\noutput\t= %f", inputs[count], results[count]);
-#endif
     }
 }
 
 - (void)processBackPropagation:(float *)inputs results:(float *)results desiredResults:(float *)desiredResults count:(unsigned int)count
 {
-    unsigned int index;
-    for (index=0; index < count; index++) {
-        neuron_float_network_process(&inputs[index], &results[index]);
-        printf("\nCalced: %f %f(%f)", inputs[index], results[index], desiredResults[index]);
-        neuron_float_network_backpropagation(&results[index], &desiredResults[index]);
+    while(count--) {
+        neuron_float_network_process(&inputs[count], &results[count]);
+        neuron_float_network_backpropagation(&results[count], &desiredResults[count]);
     }
 }
 

@@ -16,6 +16,7 @@
 		95D1C71E1A70DC2400F9A7D0 /* neuron_float_network.c in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C71C1A70DC2400F9A7D0 /* neuron_float_network.c */; };
 		95D1C7241A71E43000F9A7D0 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D1C7231A71E43000F9A7D0 /* NeuralNetwork.m */; };
 		95DB15451A72437700EB2E5C /* FloatDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB15441A72437700EB2E5C /* FloatDisplay.m */; };
+		95DB15481A72676B00EB2E5C /* FunctionDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB15471A72676B00EB2E5C /* FunctionDisplay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		95D1C7231A71E43000F9A7D0 /* NeuralNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
 		95DB15431A72437700EB2E5C /* FloatDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatDisplay.h; sourceTree = "<group>"; };
 		95DB15441A72437700EB2E5C /* FloatDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatDisplay.m; sourceTree = "<group>"; };
+		95DB15461A72676B00EB2E5C /* FunctionDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionDisplay.h; sourceTree = "<group>"; };
+		95DB15471A72676B00EB2E5C /* FunctionDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionDisplay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				95D1C6F51A70BD9400F9A7D0 /* Supporting Files */,
 				95DB15431A72437700EB2E5C /* FloatDisplay.h */,
 				95DB15441A72437700EB2E5C /* FloatDisplay.m */,
+				95DB15461A72676B00EB2E5C /* FunctionDisplay.h */,
+				95DB15471A72676B00EB2E5C /* FunctionDisplay.m */,
 			);
 			path = "neural-network";
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DB15481A72676B00EB2E5C /* FunctionDisplay.m in Sources */,
 				95D1C7241A71E43000F9A7D0 /* NeuralNetwork.m in Sources */,
 				95D1C71E1A70DC2400F9A7D0 /* neuron_float_network.c in Sources */,
 				95D1C6FB1A70BD9400F9A7D0 /* main.m in Sources */,

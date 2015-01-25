@@ -9,10 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 @class FloatDisplay;
+@class FunctionDisplay;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet FloatDisplay *floatDisplayView;
+@property (weak) IBOutlet FunctionDisplay *functionDisplayView;
 
 @end
 

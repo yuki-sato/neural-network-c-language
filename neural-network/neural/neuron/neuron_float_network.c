@@ -19,8 +19,7 @@
 typedef enum _NodeType {
 
     nodeTypeNuron = 0,
-    nodeTypeCopy,
-    nodeTypeSum
+    nodeTypeCopy
 
 }NodeType;
 
@@ -41,8 +40,8 @@ typedef struct _neuronFloatLayer {
 //=======================================================//
 #pragma mark --- Global Varirables
 //=======================================================//
-neuronFloatLayer *topLayer = NULL;
-neuronFloatLayer *lastLayer = NULL;
+static neuronFloatLayer *topLayer = NULL;
+static neuronFloatLayer *lastLayer = NULL;
 
 //=======================================================//
 #pragma mark --- Layer Control
@@ -122,7 +121,7 @@ void neuron_float_network_build_one_n_m_one(unsigned int numberOfNodeInLayer, un
     }
     
     // last layer sum all of result
-    neuron_float_network_add_layer(1, nodeTypeSum);
+    neuron_float_network_add_layer(1, nodeTypeNuron);
     
 }
 
@@ -138,7 +137,7 @@ void neuron_float_network_set_random_weight(unsigned int range)
         layer = layer->nextLayer;
         count *= layer->nodeCount;
         while (count--) {
-            layer->weight[count] = ((float)(rand() % range) / 1); // /range
+            layer->weight[count] = ((float)(rand() % range) / range) - 0.5;
         }
     }
 }
@@ -169,19 +168,6 @@ void layer_process_data(neuronFloatLayer *layer)
     }
 }
 
-void layer_sum_data(neuronFloatLayer *layer)
-{
-    unsigned int count = layer->nodeCount;
-    unsigned int previousNodeCount = layer->previousLayer->nodeCount;
-    while (count--) {
-        neuron_float_sum(
-                         &(layer->output[count]),
-                         layer->previousLayer->output,
-                         &(layer->weight[(layer->nodeCount + 1) * count]),  // +1 means dummy for theta
-                         previousNodeCount + 1);
-    }
-}
-
 //=======================================================//
 #pragma mark - Network Utils -
 //=======================================================//
@@ -202,9 +188,6 @@ void neuron_float_network_process(float *input, float *output)
             case nodeTypeNuron:
                 layer_process_data(layer);
                 break;
-            case nodeTypeSum:
-                layer_sum_data(layer);
-                break;
             default:
                 break;
         }
@@ -219,7 +202,7 @@ void neuron_float_network_backpropagation(float *lastOutput, float *desiredOutpu
 {
     neuronFloatLayer *layer = lastLayer;
     unsigned int i = 0;
-    float sEsY = (*lastOutput > *desiredOutput) ? 1.0 : -1.0;    // is E increased by increasing output?
+    float sEsY = ((*lastOutput) > (*desiredOutput)) ? 1.0 : -1.0;    // is E increased by increasing output?
     
     while (layer != topLayer) {
         
@@ -229,32 +212,35 @@ void neuron_float_network_backpropagation(float *lastOutput, float *desiredOutpu
                 // nothing to learn
                 break;
             case nodeTypeNuron:
+//                printf("\ni [");
                 for (i=0; i<layer->nodeCount; i++) {
-                    neuron_float_fill_influence_level(
-                                                      &layer->influence[i],
-                                                      &layer->output[i],
-                                                      layer->nextLayer->influence,
-                                                      layer->nextLayer->nodeCount,
-                                                      layer->nextLayer->weight,
-                                                      i,
-                                                      layer->nodeCount);
+                    if (layer->nextLayer != NULL) {
+                        neuron_float_fill_influence_level(
+                                                          &layer->influence[i],
+                                                          &layer->output[i],
+                                                          layer->nextLayer->influence,
+                                                          layer->nextLayer->nodeCount,
+                                                          layer->nextLayer->weight,
+                                                          i,
+                                                          layer->nodeCount);
+                    } else {
+                        neuron_float_fill_influence_level_last_layer(&layer->influence[i],
+                                                                     &layer->output[i],
+                                                                     sEsY);
+                    }
+//                    printf(" %f", layer->influence[i]);
                 }
-                break;
-            case nodeTypeSum:
+//                printf(" ]");
+                
+                // customizeAllOfWeight
                 for (i=0; i<layer->nodeCount; i++) {
-                    layer->influence[i] = sEsY * 1;     // linear effect.
+                    neuron_float_little_adjust(&layer->influence[i], layer->previousLayer->output, &layer->weight[(layer->nodeCount + 1) * i], layer->previousLayer->nodeCount + 1);
                 }
                 break;
             default:
                 break;
         }
-        
-        // customizeAllOfWeight
-        printf("\n");
-        for (i=0; i<layer->nodeCount; i++) {
-            neuron_float_little_adjust(&layer->influence[i], layer->previousLayer->output, &layer->weight[(layer->nodeCount + 1) * i], layer->previousLayer->nodeCount + 1);
-        }
-        
+//        printf("\n");
         layer = layer->previousLayer;
     }
 }

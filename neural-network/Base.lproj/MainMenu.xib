@@ -16,7 +16,9 @@
                 <outlet property="alphaField" destination="kzo-bw-7VN" id="hBf-x5-KfO"/>
                 <outlet property="epsilonField" destination="UCq-MF-GgB" id="iM2-yU-3zm"/>
                 <outlet property="floatDisplayView" destination="QvV-yt-ceX" id="ULB-aD-USI"/>
+                <outlet property="functionDisplayView" destination="zrG-dg-DL7" id="4WA-Hm-UDS"/>
                 <outlet property="layersTextField" destination="TEl-Ce-nSW" id="zPt-ll-gIR"/>
+                <outlet property="learnCountField" destination="mon-MH-DGm" id="I9i-h1-d0r"/>
                 <outlet property="nodeInLayerTextField" destination="ekj-Z6-PMT" id="hvT-1u-sKd"/>
                 <outlet property="weightRangeField" destination="OEv-hX-1lr" id="FKW-VA-ddw"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -699,7 +701,7 @@
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEl-Ce-nSW">
                         <rect key="frame" x="101" y="454" width="96" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="2" placeholderString="2" drawsBackground="YES" id="fbQ-ff-6XL">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1" placeholderString="2" drawsBackground="YES" id="fbQ-ff-6XL">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -748,8 +750,8 @@
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxc-cP-PVy">
-                        <rect key="frame" x="298" y="451" width="57" height="57"/>
-                        <buttonCell key="cell" type="bevel" title="Study" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RDY-Td-T1K">
+                        <rect key="frame" x="233" y="391" width="57" height="57"/>
+                        <buttonCell key="cell" type="bevel" title="Learn" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RDY-Td-T1K">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
@@ -784,12 +786,31 @@
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvV-yt-ceX" customClass="FloatDisplay">
                         <rect key="frame" x="388" y="0.0" width="367" height="325"/>
                     </customView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zrG-dg-DL7" customClass="FunctionDisplay">
+                        <rect key="frame" x="0.0" y="0.0" width="367" height="325"/>
+                    </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUc-rc-5Eh">
                         <rect key="frame" x="388" y="333" width="119" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error Improvement" id="XUm-Du-rmU">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zms-Vi-53R">
+                        <rect key="frame" x="10" y="414" width="81" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Learn Count" id="OK9-c1-IPF">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mon-MH-DGm">
+                        <rect key="frame" x="101" y="409" width="96" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1000" placeholderString="10" drawsBackground="YES" id="B15-DT-KAw">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
